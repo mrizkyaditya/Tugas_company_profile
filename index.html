@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile</title>
+  <link rel="stylesheet" href="edit.css">
+</head>
+
+<body>
+  <div id="home">
+    <div class="first">
+      <h1 class="text">fresco <span class="second">cafe & restaurant</span><span class="third">Since 2022</span></h1>
+    </div>
+    <div class="navbar">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#pesanan">Reservation</a></li>
+        <li><a href="#pesan">Delivery & TakeOut</a></li>
+        <li><a href="#galeri">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#kontak">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+  <script>
+    const backgrounds = [
+      'url(https://picfiles.alphacoders.com/496/496307.jpg)', 
+      'url(https://media-cdn.tripadvisor.com/media/photo-s/10/6a/44/f5/fresco-with-cabana-view.jpg)',
+      'url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/d1/67/f3/caption.jpg?w=1000&h=-1&s=1)',
+      'url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/e6/1d/40/fresco-restaurant.jpg?w=900&h=-1&s=1)',
+      'url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/4d/f3/10/enjoy-a-little-italian.jpg?w=1200&h=-1&s=1)'
+    ];
+
+    let currentindex = 0;
+    const backgroundContainer = document.querySelector('.first');
+
+    // Fungsi untuk mengganti background secara otomatis
+    function changeBackground() {
+      currentindex = (currentindex + 1) % backgrounds.length;
+      backgroundContainer.style.backgroundImage = backgrounds[currentindex];
+    }
+
+    // Ganti background setiap 5 detik (5000ms)
+    setInterval(changeBackground, 4000);
+  </script>
+
+  <section id="menu">
+    <div class="menu1">
+      <h1 class="h1">Fresco Menu</h1>
+    </div>
+    <div class="slider container">
+      <div class="slider">
+        <div class="gambar active">
+          <img src="https://frescobali.com/assets/img/menu/0822/Fresco%20Menu%20August%202022-6-1.png" width="100%"
+            height="90%" alt="slide 1"></img>
+          <p><a class="next" onclick="moveSlide(1)">&#10095;</a></p>
+        </div>
+        <div class="gambar">
+          <img src="https://frescobali.com/assets/img/menu/0822/Fresco%20Menu%20August%202022-6-2.png" width="100%"
+            height="90%" alt="slide 2"></img>
+          <p><a class="pre" onclick="moveSlide(-1)">&#10094;</a></p>
+        </div>
+      </div>
+  </section>
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".gambar");
+
+    function showSlide(index) {
+
+      if (index >= slides.length) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else {
+        currentIndex = index;
+      }
+
+      slides.forEach(gambar => gambar.classList.remove("active"));
+
+      slides[currentIndex].classList.add("active");
+    }
+
+    function moveSlide(direction) {
+      showSlide(currentIndex + direction);
+    }
+  </script>
+  <section id="pesanan">
+    <div class="res">
+      <h1 class="h">Silahkan buat Reservation Anda</h1>
+  </section>
+
+  <section id="pesan">Delivery & TakeOut
+    <h1>Silahkan buat pesanan Anda</h1>
+  </section>
+
+  <section id="galeri">Gallery
+    <div class="makanan">
+      <img src="https://parboaboa.com/data/foto_berita/resep_smoothie_bowl_u.webp" width="320" height="200"></img>
+      <p class="nama">Smoothie Bowls</p>
+      <img src="https://th.bing.com/th/id/OIP.Ynmibhc0SlCs8KWVDTVw7wHaFL?rs=1&pid=ImgDetMain" width="320"
+        height="200"></img>
+      <p class="nama">Egg Your Way</p>
+    </div>
+  </section>
+
+  </section>
+  <section id="about">
+    <div class="tentang">
+      <h1 class="h2">About Us</h1>
+      <p class="p">Located in the heart of Legian, Fresco Bali is serving up the freshest seasonal fare with a focus on
+        locally-sourced produce and markets. Our head chef sources only the freshest ingredients that have been grown in
+        Bali using well-established organic methods for an array of healthy and delectable fresh dishes. We're open
+        daily for breakfast, lunch, dinner from 8am to 10:00pm and reservations are recommended as we do get busy.</p>
+  </section>
+
+  <section id="kontak">
+
+  </section>
+  </div>
+</body>
+
+</html>
