@@ -125,10 +125,11 @@ body {
 
 
 
-@media(min-width: 768px) {
-  .hamburger {
+@media (max-width: 575.98px) {
+  body .hamburger {
     display: flex;
   }
+}
 
   .nav-links {
     display: none;
